@@ -45,7 +45,7 @@ inverse has already been calculated. If so, it `get`s the mean from the
 cache and skips the computation. Otherwise, it calculates the mean of
 the data and sets the value of the mean in the cache via the `setinverse`
 function.
-    
+
     cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
         m <- x$getinverse()
@@ -54,7 +54,8 @@ function.
             return(m)
         }
         data <- x$get()
-        m <- apply(data,c(1,2),function(d)1/d)
+        m <- solve(data, ...)
         x$setinverse(m)
         m
     }
+    

@@ -35,7 +35,7 @@ makeCacheMatrix <- function(x = matrix()) {
 # the inverse from the cache.
 # 
 # @param x [makeCacheMatrix] Object to be inversed
-# @param ... {arg} Arguments for the apply() functiion
+# @param ... {arg} Arguments for the solve() functiion
 # @returns m {matrix} Inversed Matrix
 ##
 
@@ -47,7 +47,7 @@ cacheSolve <- function(x, ...) {
         return(m)
     }
     data <- x$get()
-    m <- apply(data,c(1,2),function(d)1/d)
+    m <- solve(data, ...)
     x$setinverse(m)
     m
 }
